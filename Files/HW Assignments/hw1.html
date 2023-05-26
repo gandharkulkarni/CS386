@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HW 1</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="HW 1" />
+    <meta name="revised" content="Gk, 05/25/2023" />
+</head>
+
+<body>
+    <h1>Homework 1</h1>
+    <hr />
+    <form method="get" action="file:///Users/gandharkulkarni/Desktop/Captain%20GAK/USFCA/CS386/HW%20Assignments/hw1.html">
+        <table border="2">
+            <tr>
+                <td colspan="3" align="center"><strong>USF Pizza Shack</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Category</strong></td>
+                <td><strong>Food/Drinks</strong></td>
+                <td><strong>Quantity</strong></td>
+            </tr>
+            <tr>
+                <td>Pizza Selection:</td>
+                <td>
+                    <select name="pizza">
+                        <option value="">Choose Pizza...</option>
+                        <option value="sm">Small (6 slices) $6.75</option>
+                        <option value="me">Medium (8 slices) $7.75</option>
+                        <option value="la">Large (12 slices) $10.50</option>
+                    </select>
+                </td>
+                <td>
+                    <input name="pizza_quant" type="number" min="0" max="10">
+                </td>
+            </tr>
+            <tr>
+                <td>Toppings:</td>
+                <td>
+                    <select name="toppings">
+                        <option value="">No Toppings</option>
+                        <option value="ar">Artichkes $1.50</option>
+                        <option value="ba">Bacon strips $1.25</option>
+                        <option value="br">Broccoli $1.50</option>
+                        <option value="ec">Extra cheese $1.00</option>
+                        <option value="ro">Red Onions $1.25</option>
+                    </select>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Drinks:</td>
+                <td>
+                    <select name="drinks">
+                        <option value="">Choose Drinks</option>
+                        <option value="12c">12 oz. Can $1.50</option>
+                        <option value="16f">16 oz. Fountain $1.75</option>
+                        <option value="10f">10 oz. Fountain $1.25</option>
+                        <option value="li">One Liter $2.25</option>
+                    </select>
+                </td>
+                <td><input name="drinks_quant" type="number" min="0" max="10"></td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center"><strong>Customer Information</strong></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input name="email" type="text" placeholder="Email address"></td>
+                <td>Receipts will be sent to</td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><input name="fname" type="text" placeholder="Enter first name"></td>
+                <td><input name="lname" type="text" placeholder="Enter last name"></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><input name="addr" type="text" placeholder="Full address"></td>
+                <td>Billing address</td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center"><strong>Payment Information</strong></td>
+            </tr>
+            <tr>
+                <td>Payment Method:</td>
+                <td colspan="2">
+                    Credit Card : <input type="radio" value="cc" name="payment">
+                    PayPal : <input type="radio" value="pp" name="payment">
+                    Venmo : <input type="radio" value="ve" name="payment">
+                    Cash : <input type="radio" value="ca" name="payment">
+                </td>
+            </tr>
+        </table>
+        <input type="reset" value="Reset" name="reset" id="reset">
+        <input type="submit" value="Submit" name="submit" id="submit">
+    </form>
+</body>
+
+</html>
