@@ -1,0 +1,37 @@
+body{
+    font-family: sans-serif;
+    line-height: 1.5;
+    color: #444;
+}
+#main{
+    margin: 1em auto;
+    width: 90%;
+    max-width: 60ch;
+}
+.content-width{
+    margin: 2em auto;
+    width: 80%;
+    max-width: 400px;
+}
+abbr{
+    color: blue;
+}
+abbr[title]{
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: red;
+}
+a{
+    color: red;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+a:active{
+    color: black;
+}
+a:visited{
+    color: purple;
+}
+a:hover{
+    text-decoration: underline;
+}
