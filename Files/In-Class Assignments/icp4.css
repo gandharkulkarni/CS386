@@ -1,0 +1,55 @@
+#divMain{
+    height: 90vh;
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 15% 1fr 15%;
+    grid-template-rows: 100px 1fr 100px; 
+    row-gap: 10px;
+    column-gap: 10px;
+    grid-template-areas: 
+    "header header header"
+    "nav content ads"
+    "nav footer footer";
+    
+}
+
+#contentHeader{
+    grid-area: header;
+}
+#contentNav{
+    grid-area: nav;
+}
+#contentArticle{
+    grid-area: content;
+}
+#contentAside{
+    grid-area: ads;
+}
+#contentFooter{
+    grid-area: footer;
+}
+header{
+    padding: 1.2em;
+    border: solid;
+    background-color:rgb(240, 230, 141);
+}
+footer{
+    padding: 1.2em;
+    border: solid;
+    background-color:rgb(240, 230, 141);
+}
+article{
+    padding: 1.2em;
+    border: solid;
+    background-color:rgb(240, 230, 141);
+}
+nav{
+    padding: 1.2em;
+    border: solid;
+    background-color:rgb(240, 230, 141);
+}
+aside{
+    padding: 1.2em;
+    border: solid;
+    background-color:rgb(240, 230, 141);
+}

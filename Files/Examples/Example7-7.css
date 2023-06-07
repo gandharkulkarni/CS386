@@ -1,0 +1,29 @@
+.container{
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px;
+    grid-template-rows: 100px 200px 100px;
+    grid-template-areas: 
+    "header header header header"
+    "main main main sidebar"
+    "footer footer footer footer";
+}
+#item-1{
+    grid-area: header;
+    background-color: red;
+    border: 2px solid black;
+}
+#item-2{
+    grid-area: main;
+    background-color: gray;
+    border: 2px solid black;
+}
+#item-3{
+    grid-area: sidebar;
+    background-color: yellow;
+    border: 2px solid black;
+}
+#item-4{
+    grid-area: footer;
+    background-color: green;
+    border: 2px solid black;
+}
