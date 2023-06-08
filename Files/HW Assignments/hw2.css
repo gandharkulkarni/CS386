@@ -1,0 +1,44 @@
+#divMain{
+    height: 95vh;
+    display: grid;
+    grid-template-areas:
+    'header header header'
+    'nav content ads'
+    'nav footer footer';
+    gap: 10px;
+    background-color: #fff;
+    padding: 10px;
+    grid-template-columns: 10% 1fr 10%;
+    grid-template-rows: 100px 1fr 100px;
+    margin: 0 0 0 0;
+}
+#ifContent{
+    height: 100%;
+    width: 100%;
+    border: 0cm;
+}
+
+#pageHeader { 
+    grid-area: header; 
+    text-align: center;
+    background-color:  rgba(254, 215, 0, 1);
+}
+#pageNav { 
+    grid-area: nav; 
+    padding: 10px;
+    background-color:  rgba(254, 215, 0, 1);
+}
+#pageArticle { 
+    grid-area: content; 
+    background-color:  rgba(254, 215, 0, 1);
+}
+#pageAside { 
+    grid-area: ads; 
+    padding: 10px;
+    background-color:  rgba(254, 215, 0, 1);
+}
+#pageFooter {
+    grid-area: footer; 
+    padding: 10px;
+    background-color:  rgba(254, 215, 0, 1);
+}
