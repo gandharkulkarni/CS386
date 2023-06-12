@@ -5,9 +5,8 @@
     'header header header'
     'nav content ads'
     'nav footer footer';
-    gap: 10px;
-    background-color: #fff;
-    padding: 10px;
+    row-gap: 10px;
+    column-gap: 10px;
     grid-template-columns: 10% 1fr 10%;
     grid-template-rows: 100px 1fr 100px;
     margin: 0 0 0 0;
@@ -22,23 +21,26 @@
     grid-area: header; 
     text-align: center;
     background-color:  rgba(254, 215, 0, 1);
+    padding: 40px 10px;
+    
 }
 #pageNav { 
     grid-area: nav; 
-    padding: 10px;
+    padding: 20px 20px;
     background-color:  rgba(254, 215, 0, 1);
 }
 #pageArticle { 
     grid-area: content; 
+    padding: 20px 20px;
     background-color:  rgba(254, 215, 0, 1);
 }
 #pageAside { 
     grid-area: ads; 
-    padding: 10px;
+    padding: 20px 20px;
     background-color:  rgba(254, 215, 0, 1);
 }
 #pageFooter {
     grid-area: footer; 
-    padding: 10px;
+    padding: 20px 20px;
     background-color:  rgba(254, 215, 0, 1);
 }

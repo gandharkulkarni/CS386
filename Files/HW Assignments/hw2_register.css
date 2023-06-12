@@ -1,12 +1,11 @@
 label{
     font-weight: bold;
+    padding: 10px 5px;
 }
 input{
-    width: 100%;
+    width: 90%;
     background-color: rgb(245, 245, 245);
-    padding: 10px 0px;
-    margin-top: 5px;
-    margin-bottom: 20px;
+    padding: 10px 10px;
     border: 0px;
 }
 body{
