@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>icp8</title>
+		<script src="icp8.js" type="text/javascript" ></script>
+		<meta name="description" content="form input label controls">
+		<meta name="keywords" content="html sample page">
+	</head>
+	<body>
+		<h1>In-Class Programming Assignment 8</h1>
+		<hr />
+			<form id="frm"  method="get">
+				<label>
+					First Name:
+					<input type="text" id="txtFName" name="fName" placeholder="Enter first name"/>
+				</label>
+				<br />
+				<label for="txtLName">Last Name:</label>
+					<input type="text" id="txtLName" name="lName" placeholder="Enter last name" /> 
+				<p>Please select your gender:</p>
+				  <input type="radio" id="male" name="gender" value="male">
+				  <label for="male">Male</label><br>
+				  <input type="radio" id="female" name="gender" value="female">
+				  <label for="female">Female</label><br>
+				  <input type="radio" id="diverse" name="gender" value="diverse">
+				  <label for="diverse">Diverse</label>	
+				<hr />
+				<fieldset>
+					<legend>Form Processing</legend>
+					<input id = "btn" type="submit" value="Submit" />&nbsp;&nbsp;&nbsp;<input type="reset" value="Reset Form Values" />
+				</fieldset>
+			</form>
+	</body>
+</html>
+
+
