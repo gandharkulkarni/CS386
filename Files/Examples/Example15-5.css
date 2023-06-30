@@ -1,0 +1,15 @@
+.legible {
+  color: black;
+  background-color: lightgray;
+  line-height: calc(1ex / 0.32); /*ex --> height for lower case */
+  font-size: 24pt;
+  letter-spacing: .03em;
+  margin: 10px auto;
+}
+.normal {
+	background-color: Azure;
+	letter-spacing: normal;
+	font-size: 12pt;
+	line-height: normal;
+}
+
