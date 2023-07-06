@@ -1,0 +1,14 @@
+fieldset{
+    background-color: rgb(212, 221, 254);
+    border-color: rgb(68, 58, 193);
+    border-width: 3px;
+    padding: 10px;
+}
+label{
+    display: inline-block;
+    width: 100px;
+}
+span{
+    border: 1px solid black;
+    margin: 5px;
+}
