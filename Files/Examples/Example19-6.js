@@ -1,0 +1,17 @@
+const http = require('http');
+const host = '127.0.0.1';
+const port = 3021;
+const server = http.createServer(function(req,res){
+    
+    res.statusCode=200;
+    res.setHeader('Content-Type','text/html');
+    res.end(`
+    <h1>Full-Stack Web Development</h1>
+    <p><b>First web server</b></p>
+    <p>Today's date/time = ${Date()}</p>`);
+});
+server.listen(port,host,function(){
+    console.log(`Server listening on ${port}`);
+});
+
+
