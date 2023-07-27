@@ -1,0 +1,11 @@
+Server started at: 7/25/2023, 6:22:42 PM 
+Request received on: 7/25/2023, 6:22:48 PM 
+User Agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.82  
+Hostname : localhost  
+Ip address : 127.0.0.1  
+Protocol : http  
+ERROR 404 generated on: 7/25/2023, 6:22:58 PM 
+ERROR 500 generated on on: 7/25/2023, 6:23:02 PM 
+SIGINT signal received on:  7/25/2023, 6:23:51 PM 
+Closing http server on:  7/25/2023, 6:23:51 PM 
+Http server closed on:  7/25/2023, 6:23:52 PM
