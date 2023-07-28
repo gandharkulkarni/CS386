@@ -1,0 +1,16 @@
+nav {
+	border:2px;
+	background-color:#090; /*green color */
+	color:white;
+	padding:8px;
+}
+a {
+	color:white;
+	font-size:25px;
+}
+iframe {
+	position: absolute;
+	width: 90vw; /*90% viewport width */
+	height: 50vh;  /*50% viewport height */
+	border: none
+}
