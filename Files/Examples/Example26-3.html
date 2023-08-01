@@ -1,0 +1,21 @@
+<!DOCTYPE html>  
+<html>  
+	<head>  
+		<title>AngularJS</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>  
+	</head>
+	<!--Use ng init to set up array num -->
+	<body ng-app ng-init="num=['first','second','third','fourth']"><!--ng-app, ng-init with array-->
+		<h1>AngularJS App</h1>
+		<hr />
+		<ul><!--In li element, use ng repeat to loop over num using iteration variable x -->
+			<li ng-repeat="x in num" ng-hide="$even">{{x}}<!--Variable x--></li><!--ng-repeat using x iteration variable, ng-hide $even-->
+		</ul>
+		<hr />
+	</body>  
+</html>
+
+
+
+
+

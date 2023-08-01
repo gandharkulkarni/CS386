@@ -1,0 +1,31 @@
+<!DOCTYPE html>  
+<html>  
+	<head>  
+		<title>AngularJS</title>
+		<link href="Example26-2.css" rel="stylesheet" />	
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> <!--AngularJS--> 
+	</head>  
+	<body ng-app><!--Bootstrap AngularJS-->  
+		<h1>AngularJS App</h1>
+		Select style: 
+		<select ng-model="style"><!--set ng model to style-->
+			<option value="sky">Sky</option>
+			<option value="tomato">Tomato</option>
+		</select>
+		<div ng-class="style"><!--set ng class to style-->
+			<hr />
+			Employee Name: John Doe<br />
+			Show Salary: 
+			<input type="checkbox"  ng-model="showHideSal"/><!--ng model-->
+			<div ng-show="showHideSal"><!--set ng show  to showHideSal-->
+				Salary: $3712.50
+			</div>
+			<hr />
+		</div>
+	</body>  
+</html>
+
+
+
+
+

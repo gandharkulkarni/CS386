@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset='UTF-8'>
+		<title>Angular JS</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+		<script src="Example26-1.js"></script><!--Only needed if ng-app is set to value: ng-app='AngApp'-->
+	</head>
+	<body data-ng-app><!--Angular Bootstrapping-->
+		<h1>Angular JS</h1>
+		<hr />
+		<div ><!--Angular View-->
+			<p>Enter your Name: <input type = "text" data-ng-model="name"></p><!--ng-model, bind entered data into name-->
+			<p>Hello <span data-ng-bind="name"></span>!</p><!--ng-bind, binds model data to html-->
+		</div>
+	</body>
+</html>
+
+
