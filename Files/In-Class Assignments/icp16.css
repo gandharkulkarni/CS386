@@ -1,0 +1,29 @@
+/* Style for the nav div element */
+#nav {
+    width: 20vw;
+    display: inline-block;
+    border: 2px solid #333;
+    background-color: #429dd6;
+  }
+  
+  /* Style for the page-content div element */
+  #page-content {
+    width: 40vw;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0px 8px 8px 8px;
+  }
+  
+  /* Style for the unordered list element */
+  ul {
+    list-style: none;
+    padding: 10px;
+  }
+  
+  /* Style for the list elements */
+  li {
+    background-color: #ffffff;
+    margin: 5px;
+    padding: 5px;
+  }
+  
