@@ -7,6 +7,7 @@ let opts = {//Database connection options object
 };
 const connectDB = async function(blnOpen){
 	if (blnOpen) { //If true, open database connection
+		/*
 		mongoose.connect(connString, opts)
 			.then( //Callback functions
 				function() { //Success
@@ -18,7 +19,7 @@ const connectDB = async function(blnOpen){
 				}
 			)
 	} else { //Close connection
-		await mongoose.connection.close()
+		mongoose.connection.close()
 			.then( //Callback functions
 				function() { //Success
 					console.log(`MongoDB connection closed on ${new Date().toLocaleString()}`);
@@ -26,6 +27,23 @@ const connectDB = async function(blnOpen){
 					console.log("Problem while closing database " + err);
 				}
 			)			
+	*/
+		if (blnOpen) {
+			try {
+				await mongoose.connect(connString, opts);
+				let conn = mongoose.connection;
+				console.log(`Database is connected on ${new Date().toLocaleString()}: ${conn.host}:${conn.port} @ ${conn.name}`);
+			} catch (err) {
+				console.log("Problem while connecting database " + err);
+			}
+		} else {
+			try {
+				await mongoose.connection.close();
+				console.log(`MongoDB connection closed on ${new Date().toLocaleString()}`);
+			} catch (err) {
+				console.log("Problem while closing database " + err);
+			}
+		}
 	}
 }
 module.exports = connectDB; //Export function

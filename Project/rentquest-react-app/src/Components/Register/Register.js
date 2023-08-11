@@ -34,17 +34,18 @@ function Register() {
 
 
             const response = await axios.post('http://localhost:7000/register', { firstname, lastname, email, password });
-            
-            if (response.data.success || response.status===200) {
+            console.log(response);
+            if (response.data === 'User saved successfully' && response.status===200) {
                 alertBox.className = 'alert alert-success';
-                alertBox.innerHTML = '<Strong>Registration successful!</Strong>';
-              // Handle successful login
-              console.log('Registration successful');
-            } else {
-                alertBox.className = 'alert alert-danget';
+                alertBox.innerHTML = '<Strong>Registration successful!</Strong>';              
+            } 
+            else if(response.data === 'User already exists' && response.status===200) {
+                alertBox.className = 'alert alert-warning';
+                alertBox.innerHTML = '<Strong>User already exists!</Strong>';
+            }
+            else {
+                alertBox.className = 'alert alert-danger';
                 alertBox.innerHTML = '<Strong>Something went wrong please try again later</Strong>';
-              // Handle failed login
-              console.log('Registration failed');
             }
           } catch (error) {
             console.error('Error during login:', error);
