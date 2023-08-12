@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './Login.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-function Login() {
+const Login = ({setToken}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const navigate = useNavigate(); // Initialize useHistory
   const handleLogin = async () =>{
     
     let alertBox = document.getElementById('statusMsg');
@@ -23,7 +24,10 @@ function Login() {
     }
     const response = await axios.post('http://localhost:7000/login', { email, password });
     if(response.data){
+      const { token } = response.data;
+      setToken(token);
       console.log('Login success');
+      navigate('/user/home'); 
     }else{
         alertBox.className = 'alert alert-danger';
         alertBox.innerHTML = '<Strong>Username Password combination is incorrect</Strong>';

@@ -1,11 +1,13 @@
 // routes.js
 const express = require('express');
+const jwt = require('jsonwebtoken');
 const path = require('path');
 const router = express.Router();
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt');
 const connectDB = require('../db/db');
 
+const secretKey = 'r3ntQu3stCS386'; 
 let User = require('../models/userSchema');
 // const jwt = require('jsonwebtoken');
 
@@ -58,7 +60,9 @@ router.post('/login', async (req, res) => {
   if (userExist) {
     bcrypt.compare(req.body.password, userExist.password, (err,isMatch) =>{
       if(isMatch){
-        res.status(200).send(true);
+        const token = jwt.sign({ id: userExist.id, username: userExist.email }, secretKey, { expiresIn: '1h' });
+        res.status(200).json({ token });
+        // res.status(200).send(true);
       } else{
         res.status(200).send(false); 
       }
