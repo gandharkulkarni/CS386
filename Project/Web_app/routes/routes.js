@@ -18,12 +18,11 @@ router.post('/register', async (req, res) => {
     email: req.body.email,
     password: await bcrypt.hash(req.body.password, 10)
   };
-  console.log('Connecting to db');
+  
   // Connect to the database
   await connectDB(true);
 
-  const userExist = User.findOne({ email: regUser.email });
-  
+  const userExist = await User.findOne({ email: regUser.email });
   if (userExist) {
     //User already exists
     res.status(200).send('User already exists');
@@ -51,6 +50,22 @@ router.post('/register', async (req, res) => {
 // Login user
 router.post('/login', async (req, res) => {
   // Handle user login
+  
+  // Connect to the database
+  await connectDB(true);
+  
+  const userExist = await User.findOne({ email: req.body.email});
+  if (userExist) {
+    bcrypt.compare(req.body.password, userExist.password, (err,isMatch) =>{
+      if(isMatch){
+        res.status(200).send(true);
+      } else{
+        res.status(200).send(false); 
+      }
+    });
+  } else{
+    res.status(200).send(false);
+  }
 });
 
 

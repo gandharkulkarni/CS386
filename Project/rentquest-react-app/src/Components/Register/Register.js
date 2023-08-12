@@ -7,10 +7,10 @@ function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSignUp = async (event) =>{
+    const handleSignUp = async () =>{
         try {
             let alertBox = document.getElementById('statusMsg');
-
+            let signupForm = document.getElementById('signupForm');
             if(firstname.length<1){
                 alertBox.className = 'alert alert-danger';
                 alertBox.innerHTML = '<Strong>First Name can not be empty</Strong>';
@@ -32,12 +32,13 @@ function Register() {
                 return;
             }
 
-
+            console.log(firstname, lastname, email, password);
             const response = await axios.post('http://localhost:7000/register', { firstname, lastname, email, password });
             console.log(response);
             if (response.data === 'User saved successfully' && response.status===200) {
                 alertBox.className = 'alert alert-success';
-                alertBox.innerHTML = '<Strong>Registration successful!</Strong>';              
+                alertBox.innerHTML = '<Strong>Registration successful!</Strong>';   
+                signupForm.reset();           
             } 
             else if(response.data === 'User already exists' && response.status===200) {
                 alertBox.className = 'alert alert-warning';
@@ -62,7 +63,7 @@ function Register() {
         <div className="row">
         <div className="col-md-6 offset-md-3">
             <h2 className="text-center">Create Your RentQuest Account</h2>
-            <form>
+            <form id='signupForm'>
             <div className="form-group">
                 <label htmlFor="fName"><i className="fas fa-user"></i> First Name</label>
                 <input type="text" className="form-control" id="fName" placeholder="Enter your first name" onChange={(e)=> setFirstname(e.target.value)} />
