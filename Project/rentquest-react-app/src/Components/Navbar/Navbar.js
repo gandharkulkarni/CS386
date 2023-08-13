@@ -11,7 +11,7 @@ const Navbar = ({handleLogout}) => {
         <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-                <a className="nav-link" href="./profile.html"><i className="fas fa-user-circle"></i>Profile</a>
+                <a className="nav-link" href="/user/profile"><i className="fas fa-user-circle"></i>Profile</a>
             </li>
             <li className="nav-item">
                 <a className="nav-link" href="./listings.html"><i className="fas fa-hotel"></i>Find Apartments</a>

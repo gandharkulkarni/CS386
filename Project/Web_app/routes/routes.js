@@ -60,7 +60,7 @@ router.post('/login', async (req, res) => {
   if (userExist) {
     bcrypt.compare(req.body.password, userExist.password, (err,isMatch) =>{
       if(isMatch){
-        const token = jwt.sign({ id: userExist.id, username: userExist.email }, secretKey, { expiresIn: '1h' });
+        const token = jwt.sign({ id: userExist.id, email: userExist.email }, secretKey, { expiresIn: '1h' });
         res.status(200).json({ token });
         // res.status(200).send(true);
       } else{
@@ -70,6 +70,19 @@ router.post('/login', async (req, res) => {
   } else{
     res.status(200).send(false);
   }
+});
+
+router.get('/profile', async (req, res)=> {
+  // Connect to the database
+  await connectDB(true);
+  
+  const user = await User.findOne({ email: req.query.email});
+  if (user) {
+    res.status(200).json(user);
+  } else{
+    res.status(200).send('User not found');
+  }
+  await connectDB(false);
 });
 
 

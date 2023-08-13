@@ -6,13 +6,19 @@ import Home from './Components/Home/Home';
 import React, { useState, useEffect } from 'react';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
+import jwtDecode from 'jwt-decode'; 
+import Profile from './Components/Profile/Profile';
 function App() {
 
   const [token, setToken] = useState(localStorage.getItem('token') || '');
-
+  const decodeJWT = (token) =>{
+    return jwtDecode(token); // Decode the token
+  };
   useEffect(() => {
     if (token) {
       localStorage.setItem('token', token);
+      let decodedJWT = decodeJWT(token);
+      localStorage.setItem('email', decodedJWT.email);
     }
   }, [token]);
 
@@ -31,6 +37,7 @@ function App() {
       <Route path="/login" element={ token? <Home /> : <Login setToken={setToken}/>} />
       <Route path="/register" element={<Register />} />
       <Route path='/user/home' element={token? <Home /> : <Navigate to='/login'/>} />
+      <Route path='/user/profile' element={token? <Profile /> : <Navigate to='/login'/>} />
       {/* <Route component={NotFound} /> */}
     </Routes>
     <Footer />
