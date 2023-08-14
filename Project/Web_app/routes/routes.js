@@ -94,6 +94,21 @@ router.get('/apt', async(req, res) =>{
   await connectDB(false);
 })
 
+router.delete('/apt/:id', async(req, res) =>{
+  // Connect to the database
+  await connectDB(true);
+  const documentId = req.params.id;
+  console.log(documentId);
+  const result = await Apartment.deleteOne({ _id: documentId });
+  if(result.deletedCount>0){
+    res.status(200).send(true);
+  } else{
+    res.status(200).send(false);
+  }
+  await connectDB(false);
+
+});
+
 router.post('/admin/apt', async(req, res) => {
 
   // Connect to the database

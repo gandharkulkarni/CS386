@@ -1,5 +1,6 @@
 import React from 'react';
 import './Home.css'
+import ModifyApartment from '../ModifyApartment/ModifyApartment';
 function AdminHome() {
     const imagePath = require('../../rentquest-icon.png');
     return ( 
@@ -13,7 +14,8 @@ function AdminHome() {
             </div>
             <br />
             <div className="row">
-                <div className="col offset-10">
+                <div className="col">
+                    <ModifyApartment />
                 </div>
             </div>
         </div>

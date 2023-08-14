@@ -16,7 +16,6 @@ const AdminNavbar = ({handleLogout}) => {
                 <li className="nav-item">
                     <a className="nav-link" href="/login" onClick={handleLogout}><i className="fas fa-sign-out-alt"></i>Logout</a>
                 </li>
-                
             </ul>
         </div>
     </nav>
