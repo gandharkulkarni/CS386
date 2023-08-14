@@ -28,9 +28,9 @@ function Profile() {
     });
 
     return ( 
-        <div class="container">
-            <div class="row">
-                <div  class="col-md-6 offset-3">
+        <div className="container">
+            <div className="row">
+                <div  className="col-md-6 offset-3">
                     <h1>User Profile</h1>
                     <form>
                     <div className="form-group">

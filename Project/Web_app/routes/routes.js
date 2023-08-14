@@ -86,6 +86,14 @@ router.get('/profile', async (req, res)=> {
   await connectDB(false);
 });
 
+router.get('/apt', async(req, res) =>{
+  // Connect to the database
+  await connectDB(true);
+  let aptDocs = await Apartment.find();
+  res.status(200).send(aptDocs);
+  await connectDB(false);
+})
+
 router.post('/admin/apt', async(req, res) => {
 
   // Connect to the database

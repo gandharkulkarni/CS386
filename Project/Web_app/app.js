@@ -15,7 +15,7 @@ const routes = require('./routes/routes'); // Import the routes.js file
 app.use('/', routes); // Use the routes with '/' prefix
 // app.use(express.static(path.join(__dirname , 'react-app')));
 
-// // For all other routes, serve the React app
+// For all other routes, serve the React app
 // app.get('*', (req, res) => {
 //   res.sendFile(path.join(__dirname, 'react-app', 'index.html'));
 // });

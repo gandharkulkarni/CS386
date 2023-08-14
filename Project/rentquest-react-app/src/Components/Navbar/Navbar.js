@@ -14,7 +14,7 @@ const Navbar = ({handleLogout}) => {
                 <a className="nav-link" href="/user/profile"><i className="fas fa-user-circle"></i>Profile</a>
             </li>
             <li className="nav-item">
-                <a className="nav-link" href="./listings.html"><i className="fas fa-hotel"></i>Find Apartments</a>
+                <a className="nav-link" href="/user/apt"><i className="fas fa-hotel"></i>Find Apartments</a>
             </li>
             <li className="nav-item">
                 <a className="nav-link" href="/login" onClick={handleLogout}><i className="fas fa-sign-out-alt"></i>Logout</a>
