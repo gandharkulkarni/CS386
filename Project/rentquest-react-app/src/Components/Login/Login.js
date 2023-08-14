@@ -8,6 +8,7 @@ const Login = ({setToken}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); // Initialize useHistory
+  const imagePath = require('../../rq-icon.png');
   const handleLogin = async () =>{
     
     let alertBox = document.getElementById('statusMsg');
@@ -42,6 +43,10 @@ const Login = ({setToken}) => {
   };
   return (
     <div className="container">
+        <div className='row'>
+        <div className='col offset-md-5'>
+          <img src={imagePath} alt="RentQuest" height="100" width="150"></img>
+        </div></div><br/><br/>
         <div className="row">
           <div className="col-md-6 offset-md-3">
               <div className="" id="statusMsg">
