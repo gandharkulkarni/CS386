@@ -6,7 +6,12 @@ function Register() {
     const [lastname, setLastname] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const imagePath = require('../../rq-icon.png');
+    const isValidEmail = (email) => {
+        // Regular expression for email validation
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return emailPattern.test(email);
+      };
     const handleSignUp = async () =>{
         try {
             let alertBox = document.getElementById('statusMsg');
@@ -26,15 +31,25 @@ function Register() {
                 alertBox.innerHTML = '<Strong>Email can not be empty</Strong>';
                 return;
             }
+            if(!isValidEmail(email)){
+                alertBox.className = 'alert alert-danger';
+                alertBox.innerHTML = '<Strong>Invalid Email address</Strong>';
+                return;
+            }
             if(password.length<1){
                 alertBox.className = 'alert alert-danger';
                 alertBox.innerHTML = '<Strong>Password can not be empty</Strong>';
                 return;
             }
+            if(password.length<8){
+                alertBox.className = 'alert alert-danger';
+                alertBox.innerHTML = '<Strong>Password must have more than 8 characters</Strong>';
+                return;
+            }
 
-            console.log(firstname, lastname, email, password);
+            
             const response = await axios.post('http://localhost:7000/register', { firstname, lastname, email, password });
-            console.log(response);
+            
             if (response.data === 'User saved successfully' && response.status===200) {
                 alertBox.className = 'alert alert-success';
                 alertBox.innerHTML = '<Strong>Registration successful!</Strong>';   
@@ -54,6 +69,10 @@ function Register() {
     };
     return(
     <div className="container">
+        <div className='row'>
+        <div className='col offset-md-5'>
+          <img src={imagePath} alt="RentQuest" height="100" width="150"></img>
+        </div></div><br/><br/>
         <div className="row">
             <div className="col-md-6 offset-md-3">
                 <div className="" id="statusMsg">
