@@ -12,6 +12,7 @@ import AdminNavbar from './Components/Navbar/AdminNavbar';
 import AdminHome from './Components/Home/AdminHome';
 import AddApartment from './Components/AddApartment/AddApartment';
 import ViewApartment from './Components/ViewApartment/ViewApartment';
+import EditApartment from './Components/EditApartment/EditApartment';
 function App() {
 
   const [token, setToken] = useState(localStorage.getItem('token') || '');
@@ -104,6 +105,17 @@ function App() {
               <Navigate to='/admin/home' /> // Redirect to admin home if adminFlag is true
             ) : (
               <ViewApartment /> // Render ViewApartment if adminFlag is false
+            )
+          ) : (
+            <Navigate to='/login' /> // Redirect to login if token is not set
+          )
+        } />
+        <Route path='/admin/editApt/:id' element ={
+          token ? ( // Check if token is set
+            checkAdmin(token) ? ( // Check if adminFlag is true or false
+              <EditApartment /> // Redirect to admin home if adminFlag is true
+            ) : (
+              <Navigate to='/user/apt' /> // Render ViewApartment if adminFlag is false
             )
           ) : (
             <Navigate to='/login' /> // Redirect to login if token is not set

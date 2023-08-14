@@ -34,7 +34,7 @@ function ModifyApartment() {
                                         <p className="card-text">Bedrooms:{apt.bedroom} Bathroom:{apt.bathroom} Sq.Ft:{apt.area.$numberDecimal} </p>
                                         <p className='card-text'>Rent:{apt.rent.$numberDecimal} Deposit:{apt.deposit.$numberDecimal}</p>
                                         <p className='card-text'>Contact No: {apt.contactNumber}</p>
-                                        <a href= {'/admin/editApt?'+apt.id} ><i className='fas fa-pencil'></i></a>
+                                        <a href= {'/admin/editApt/'+apt._id} ><i className='fas fa-pencil'></i></a>
                                         <a href='#' onClick={() => handleDelete(apt._id)}><i className='fas fa-trash'></i></a>
                                     </div>
                                 </div>

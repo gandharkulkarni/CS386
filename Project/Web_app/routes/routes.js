@@ -98,7 +98,7 @@ router.delete('/apt/:id', async(req, res) =>{
   // Connect to the database
   await connectDB(true);
   const documentId = req.params.id;
-  console.log(documentId);
+  
   const result = await Apartment.deleteOne({ _id: documentId });
   if(result.deletedCount>0){
     res.status(200).send(true);
@@ -107,6 +107,53 @@ router.delete('/apt/:id', async(req, res) =>{
   }
   await connectDB(false);
 
+});
+
+router.get('/apt/:id', async(req, res) => {
+  // Connect to the database
+  await connectDB(true);
+  const documentId = req.params.id;
+  
+  const apt = await Apartment.findOne({ _id: documentId });
+  if(apt){
+    res.status(200).send(apt);
+  } else{
+    res.status(200).send(false);
+  }
+  await connectDB(false);
+});
+
+router.put('/apt/:id', async (req, res) => {
+  // Connect to the database
+  await connectDB(true);
+  const documentId = req.params.id;
+  
+  const apt = await Apartment.findOne({ _id: documentId });
+  if(apt){
+    const updatedApt = {
+      address: req.body.addr,
+      city: req.body.city,
+      state: req.body.state,
+      country: req.body.country,
+      rent: req.body.rent,
+      deposit: req.body.deposit,
+      area: req.body.area,
+      bedroom: req.body.bed,
+      bathroom: req.body.bath,
+      contactNumber: req.body.contact,
+    };
+    const result = await Apartment.updateOne({_id: documentId}, updatedApt)
+    if(result.modifiedCount>0){
+      res.status(200).send(true);
+    } else{
+      res.status(200).send(false);
+    }
+  } else{
+    res.status(200).send(false);
+  }
+  
+  // Disconnect the database
+  await connectDB(false);
 });
 
 router.post('/admin/apt', async(req, res) => {
