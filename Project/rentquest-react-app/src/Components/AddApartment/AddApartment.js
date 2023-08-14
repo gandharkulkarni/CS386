@@ -11,6 +11,7 @@ function AddApartment() {
     const [area, setArea] = useState('');
     const [bed, setBed] = useState('');
     const [bath, setBath] = useState('');
+    const [contact, setContact] = useState('');
 
     const handleAddApartment = async () => {
         let alertBox = document.getElementById('statusMsg');
@@ -43,8 +44,11 @@ function AddApartment() {
         } else if (bath.length < 1) {
             alertBox.className = 'alert alert-danger';
             alertBox.innerHTML = '<Strong>Bath can not be empty</Strong>';
+        } else if (contact.length!==10){
+            alertBox.className = 'alert alert-danger';
+            alertBox.innerHTML = '<Strong>Invalid contact number</Strong>';
         } else {
-            let response = await axios.post('http://localhost:7000/admin/apt', { addr, city, state, country, rent, deposit, area, bed, bath })
+            let response = await axios.post('http://localhost:7000/admin/apt', { addr, city, state, country, rent, deposit, area, bed, bath, contact })
             console.log(response);
             if(response.status===200 && response.data==='Apt saved successfully'){
                 alertBox.className = 'alert alert-success';
@@ -120,6 +124,10 @@ function AddApartment() {
                                 <option value={4}>4</option>
                             </select>
                         </div>
+                        <div className='form-group'>
+                        <label htmlFor="contactNo"><i className="fas fa-phone"></i> Contact Number</label>
+                        <input type='number' className='form-control' id='contactNo' min={10} max={10} onChange={(e) => setContact(e.target.value)} required></input>
+                        </div> 
                         <div className="form-group">
                             <input type='button' value={'Add'} className='btn btn-primary btn-block' onClick={handleAddApartment} />
                         </div>

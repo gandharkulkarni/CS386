@@ -100,6 +100,7 @@ router.post('/admin/apt', async(req, res) => {
     area: req.body.area,
     bedroom: req.body.bed,
     bathroom: req.body.bath,
+    contactNumber: req.body.contact,
   };
   const newApt = new Apartment(regApt);
 

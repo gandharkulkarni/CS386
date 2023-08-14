@@ -37,7 +37,10 @@ let apartmentSchema = mongoose.Schema({ //Define schema
 		type: Number,
         required: true,
 	},
-
+	contactNumber:{
+		type: Number,
+		required: true,
+	},
 })
 module.exports = mongoose.model('Apartment', apartmentSchema);//Create and export model
 
