@@ -9,6 +9,7 @@ const connectDB = require('../db/db');
 
 const secretKey = 'r3ntQu3stCS386'; 
 let User = require('../models/userSchema');
+let Apartment = require('../models/apartmentSchema')
 // const jwt = require('jsonwebtoken');
 
 // Register user
@@ -60,7 +61,7 @@ router.post('/login', async (req, res) => {
   if (userExist) {
     bcrypt.compare(req.body.password, userExist.password, (err,isMatch) =>{
       if(isMatch){
-        const token = jwt.sign({ id: userExist.id, email: userExist.email }, secretKey, { expiresIn: '1h' });
+        const token = jwt.sign({ id: userExist.id, email: userExist.email, isAdmin: userExist.isAdmin }, secretKey, { expiresIn: '1h' });
         res.status(200).json({ token });
         // res.status(200).send(true);
       } else{
@@ -82,6 +83,36 @@ router.get('/profile', async (req, res)=> {
   } else{
     res.status(200).send('User not found');
   }
+  await connectDB(false);
+});
+
+router.post('/admin/apt', async(req, res) => {
+
+  // Connect to the database
+  await connectDB(true);
+  const regApt = {
+    address: req.body.addr,
+    city: req.body.city,
+    state: req.body.state,
+    country: req.body.country,
+    rent: req.body.rent,
+    deposit: req.body.deposit,
+    area: req.body.area,
+    bedroom: req.body.bed,
+    bathroom: req.body.bath,
+  };
+  const newApt = new Apartment(regApt);
+
+  newApt.save()
+  .then(savedApt =>{
+      console.log('Data has been successfully saved:');
+      res.status(200).send('Apt saved successfully');
+  })
+  .catch(error => {
+    console.log('Error saving Apt' + error);
+    res.status(200).send('Error: Saving Apt.');
+  });
+  // Disconnect DB
   await connectDB(false);
 });
 

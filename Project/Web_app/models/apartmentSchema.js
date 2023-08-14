@@ -1,10 +1,6 @@
+const { Decimal128, Int32 } = require('mongodb');
 const mongoose = require('mongoose'); //Load mongoose
 let apartmentSchema = mongoose.Schema({ //Define schema
-	apartmentId: {
-		type: String,
-		required: true,
-		unique: true
-	},
 	address: {
 		type: String,
 		required: true,
@@ -22,27 +18,23 @@ let apartmentSchema = mongoose.Schema({ //Define schema
         required: true,
     },
     rent:{
-        type: Double,
+        type: Decimal128,
         required: true,
     },
 	deposit:{
-		type: Double,
+		type: Decimal128,
         required: true,
 	},
 	area:{
-		type: Double,
+		type: Decimal128,
         required: true,
 	},
-	bedrooms:{
-		type: Integer,
+	bedroom:{
+		type: Number,
         required: true,
 	},
-	bathrooms:{
-		type: Integer,
-        required: true,
-	},
-	imagePath:{
-		type: String,
+	bathroom:{
+		type: Number,
         required: true,
 	},
 

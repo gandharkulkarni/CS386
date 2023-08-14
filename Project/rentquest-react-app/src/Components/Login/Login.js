@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Login.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
 
 const Login = ({setToken}) => {
   const [email, setEmail] = useState('');
@@ -26,8 +27,13 @@ const Login = ({setToken}) => {
     if(response.data){
       const { token } = response.data;
       setToken(token);
+      let decodedJWT = jwtDecode(token);
       console.log('Login success');
-      navigate('/user/home'); 
+      if(decodedJWT.isAdmin){
+        navigate('/admin/home');
+      } else{
+        navigate('/user/home'); 
+      }
     }else{
         alertBox.className = 'alert alert-danger';
         alertBox.innerHTML = '<Strong>Username Password combination is incorrect</Strong>';
