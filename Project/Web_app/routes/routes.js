@@ -156,7 +156,7 @@ router.put('/apt/:id', async (req, res) => {
   await connectDB(false);
 });
 
-router.post('/admin/apt', async(req, res) => {
+router.post('/apt', async(req, res) => {
 
   // Connect to the database
   await connectDB(true);

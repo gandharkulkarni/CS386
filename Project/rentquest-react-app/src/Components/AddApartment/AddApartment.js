@@ -48,7 +48,7 @@ function AddApartment() {
             alertBox.className = 'alert alert-danger';
             alertBox.innerHTML = '<Strong>Invalid contact number</Strong>';
         } else {
-            let response = await axios.post('http://localhost:7000/admin/apt', { addr, city, state, country, rent, deposit, area, bed, bath, contact })
+            let response = await axios.post('http://localhost:7000/apt', { addr, city, state, country, rent, deposit, area, bed, bath, contact })
             console.log(response);
             if(response.status===200 && response.data==='Apt saved successfully'){
                 alertBox.className = 'alert alert-success';
