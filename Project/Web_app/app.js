@@ -6,6 +6,7 @@ const cors = require('cors');
 const path = require('path');
 const app = express();
 const PORT = config.PORT;
+const appName = config.HEADER;
 
 app.use(bodyParser.json());
 app.use(express.json());
@@ -21,5 +22,5 @@ app.get('*', (req, res) => {
 });
 
 module.exports = app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`${appName} server is running on port ${PORT}`);
 });
