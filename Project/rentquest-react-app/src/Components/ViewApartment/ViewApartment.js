@@ -79,7 +79,7 @@ function ViewApartment() {
                                     <div className="card-body">
                                         <h5 className="card-title">{apt.address}</h5>
                                         <p className="card-text">Bedrooms:{apt.bedroom} Bathroom:{apt.bathroom} Sq.Ft:{apt.area.$numberDecimal} </p>
-                                        <p className='card-text'>Rent:{apt.rent.$numberDecimal} Deposit:{apt.deposit.$numberDecimal}</p>
+                                        <p className='card-text'>Rent: ${apt.rent.$numberDecimal} Deposit: ${apt.deposit.$numberDecimal}</p>
                                         <p className='card-text'>Contact No: {apt.contactNumber}</p>
                                     </div>
                                 </div>
