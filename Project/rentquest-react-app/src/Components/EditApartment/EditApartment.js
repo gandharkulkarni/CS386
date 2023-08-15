@@ -115,7 +115,7 @@ function EditApartment() {
                         <input type='number' className='form-control' id='contactNo' value={contact} min={10} max={10} onChange={(e) => setContact(e.target.value)} required></input>
                         </div> 
                         <div className="form-group">
-                            <input type='button' value={'Edit Apartment'} className='btn btn-primary btn-block' onClick={handleEditApartment} />
+                            <input type='button' value={'Update'} className='btn btn-primary btn-block' onClick={handleEditApartment} />
                         </div>
                         <br /><br />
                     </form>
